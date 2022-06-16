@@ -21,7 +21,7 @@ def main():
         name = client.recv(BUFSIZE)
         print(f"name: {name}")
 
-        client.sendall(b"Hi, nice to meet you " + name + "!\n")
+        client.sendall(b"Hi, nice to meet you " + name + b"!\n")
 
         print("response sent!")
         client.close()
