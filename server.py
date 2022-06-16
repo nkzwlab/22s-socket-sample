@@ -17,7 +17,11 @@ def main():
     while True:
         client, addr = server.accept()
         print(f"request received from '{addr[0]}:{addr[1]}'.")
-        client.sendall(b"Hi, nice to meet you!\n")
+
+        name = client.recv(BUFSIZE)
+        print(f"name: {name}")
+
+        client.sendall(b"Hi, nice to meet you " + name + "!\n")
 
         print("response sent!")
         client.close()
